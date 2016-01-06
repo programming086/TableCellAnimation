@@ -52,5 +52,18 @@ class LessonsTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+//        cell.alpha = 0
+//        
+//        UIView.animateWithDuration(1.0, animations: {cell.alpha = 1})
+        
+//        let rotationAngleInRadians = 90.0 * CGFloat(M_PI/180)
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 100, 0)
+        cell.layer.transform = rotationTransform
+        
+        UIView.animateWithDuration(1.0, animations: {cell.layer.transform = CATransform3DIdentity})
+    }
+    
 
 }
